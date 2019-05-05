@@ -38,12 +38,20 @@ impl<T> Node<T> {
         Node { node, parent, lhs: None, rhs: None }
     }
 
-    pub fn set_lhs(&mut self, n: Option<Rc<RefCell<Node<T>>>>) {
-        self.lhs = n;
+    pub fn set_lhs(&mut self, n: Rc<RefCell<Node<T>>>) {
+        self.lhs = Some(n);
     }
 
-    pub fn set_rhs(&mut self, n: Option<Rc<RefCell<Node<T>>>>) {
-        self.rhs = n;
+    pub fn set_rhs(&mut self, n: Rc<RefCell<Node<T>>>) {
+        self.rhs = Some(n);
+    }
+
+    pub fn clear_lhs(&mut self) {
+        self.lhs = None;
+    }
+
+    pub fn clear_rhs(&mut self) {
+        self.rhs = None;
     }
 
     pub fn unwrap(self) -> T {
