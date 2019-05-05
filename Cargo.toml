@@ -1,7 +1,15 @@
 [package]
 name = "malachite"
-version = "0.1.0"
-authors = ["spencer"]
+version = "0.0.1"
+authors = ["spocot spencerkocot@gmail.com"]
 edition = "2018"
+
+[[bin]]
+name="malachite"
+doc=false
+test=false
+
+[profile.release]
+opt-level=3
 
 [dependencies]
