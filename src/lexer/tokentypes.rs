@@ -75,3 +75,15 @@ pub fn print_node<T: Debug>(n: &Node<T>) {
     try_print_node(&n.rhs);
     print!("]}}");
 }
+
+#[derive(Clone,Debug)]
+pub struct TypeNode<T, V> {
+    ntype: T,
+    nval: Rc<RefCell<V>>
+}
+
+impl<T, V> TypeNode<T,V> {
+    pub fn new(ntype: T, nval: Rc<RefCell<V>>) -> TypeNode<T, V> {
+        TypeNode { ntype, nval }
+    }
+}
