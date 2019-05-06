@@ -76,14 +76,15 @@ pub fn print_node<T: Debug>(n: &Node<T>) {
     print!("]}}");
 }
 
+// Holds a type and a node
 #[derive(Clone,Debug)]
-pub struct TypeNode<T, V> {
-    ntype: T,
-    nval: Rc<RefCell<V>>
+pub struct TypeNode<T> {
+    ntype: Type,
+    nval: Rc<RefCell<Node<T>>>
 }
 
-impl<T, V> TypeNode<T,V> {
-    pub fn new(ntype: T, nval: Rc<RefCell<V>>) -> TypeNode<T, V> {
+impl<T> TypeNode<T> {
+    pub fn new(ntype: Type, nval: Rc<RefCell<Node<T>>>) -> TypeNode<T> {
         TypeNode { ntype, nval }
     }
 }
